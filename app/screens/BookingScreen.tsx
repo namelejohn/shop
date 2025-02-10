@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {
   Image,
   Pressable,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -13,6 +12,7 @@ import {
 import COLORS from '../styles/colors.ts';
 import MyHeader from '../components/MyHeader.tsx';
 import ScreenBg from '../components/ScreenBg.tsx';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const MONTH_NAMES = [
   'JAN',
@@ -78,7 +78,7 @@ export default function BookingScreen({navigation}: any) {
 
   return (
     <ScreenBg>
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView edges={['left', 'right']} style={styles.safeArea}>
         <MyHeader
           showBack
           title={'Reservation'}
@@ -183,7 +183,7 @@ const TEXT_COLOR = '#fff';
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: BG_COLOR,
+    paddingTop: 40,
   },
   contentContainer: {
     paddingHorizontal: 20,
